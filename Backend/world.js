@@ -1,5 +1,5 @@
 module.exports = {
-    "name": "Nom du monde",
+    "name": "MarioWorld",
     "logo": "icones/logomonde.jpg",
     "money": 0,
     "score": 0,
@@ -43,8 +43,36 @@ module.exports = {
         {
             "id": 2,
             "name": "Champignon",
-            "logo": "icones/Champignon.png",
-        } //…
+            "logo": "icones/Champignon.jpeg",
+            "cout": 4,
+            "croissance": 1.07,
+            "revenu": 1,
+            "vitesse": 500,
+            "quantite": 1,
+            "timeleft": 0,
+            "managerUnlocked": false,
+            "palliers": [
+                {
+                    "name": "triple Champignon",
+                    "logo": "icones/TripleChampi.webp",
+                    "seuil": 20,
+                    "idcible": 1,
+                    "ratio": 2,
+                    "typeratio": "vitesse",
+                    "unlocked": "false"
+                },
+                {
+                    "name": "Champignon doré",
+                    "logo": "icones/champior.webp",
+                    "seuil": 75,
+                    "idcible": 1,
+                    "ratio": 2,
+                    "typeratio": "vitesse",
+                    "unlocked": "false"
+                }]
+            //…
+        }
+         //…
     ],
     "allunlocks": [
         {
@@ -84,14 +112,58 @@ module.exports = {
     ],
     "managers": [
         {
-            "name": "Wangari Maathai",
-            "logo": "icones/WangariMaathai.jpg",
+            "name": "Mario",
+            "logo": "icones/Mario.png",
             "seuil": 10,
             "idcible": 1,
             "ratio": 0,
             "typeratio": "gain",
             "unlocked": "false"
         },
-        // …
+        {
+            "name": "Luigi",
+            "logo": "icones/Luigi.webp",
+            "seuil": 100,
+            "idcible": 2,
+            "ratio": 0,
+            "typeratio": "gain",
+            "unlocked": "false"
+        },
+        {
+            "name": "Peach",
+            "logo": "icones/Peach.webp",
+            "seuil": 1000,
+            "idcible": 3,
+            "ratio": 0,
+            "typeratio": "gain",
+            "unlocked": "false"
+        },
+        {
+            "name": "Daisy",
+            "logo": "icones/Daisy.png",
+            "seuil": 10000,
+            "idcible": 4,
+            "ratio": 0,
+            "typeratio": "gain",
+            "unlocked": "false"
+        },
+        {
+            "name": "Yoshi",
+            "logo": "icones/Yoshi.webp",
+            "seuil": 100000,
+            "idcible": 5,
+            "ratio": 0,
+            "typeratio": "gain",
+            "unlocked": "false"
+        },
+        {
+            "name": "Toad",
+            "logo": "icones/Toad.png",
+            "seuil": 1000000,
+            "idcible": 2,
+            "ratio": 0,
+            "typeratio": "gain",
+            "unlocked": "false"
+        },
     ]
 };
