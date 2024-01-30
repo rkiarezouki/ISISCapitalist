@@ -55,8 +55,8 @@ module.exports = {
                 {
                     "name": "triple Champignon",
                     "logo": "icones/TripleChampi.webp",
-                    "seuil": 20,
-                    "idcible": 1,
+                    "seuil": 30,
+                    "idcible": 2,
                     "ratio": 2,
                     "typeratio": "vitesse",
                     "unlocked": "false"
@@ -64,8 +64,8 @@ module.exports = {
                 {
                     "name": "Champignon doré",
                     "logo": "icones/champior.webp",
-                    "seuil": 75,
-                    "idcible": 1,
+                    "seuil": 85,
+                    "idcible": 2,
                     "ratio": 2,
                     "typeratio": "vitesse",
                     "unlocked": "false"
