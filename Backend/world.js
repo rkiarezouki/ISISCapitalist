@@ -79,7 +79,7 @@ module.exports = {
             "name": "Nom du premier unlock général",
             "logo": "icones/premierunlock.jpg",
             "seuil": 30,
-            "idcible": 0,
+            "idcible": 1,
             "ratio": 2,
             "typeratio": "gain",
             "unlocked": "false"
@@ -160,7 +160,7 @@ module.exports = {
             "name": "Toad",
             "logo": "icones/Toad.png",
             "seuil": 1000000,
-            "idcible": 2,
+            "idcible": 6,
             "ratio": 0,
             "typeratio": "gain",
             "unlocked": "false"
