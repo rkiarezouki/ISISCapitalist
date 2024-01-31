@@ -1,7 +1,8 @@
-import {GraphqlService} from "./graphql.serive";
-import {Product, World} from ".world";
+
 import {BACKEND} from "./request";
 import { Component } from "@angular/core";
+import { World } from "./world";
+import { GraphqlService } from "./graphql.service";
 
 @Component({
   selector: 'app-root',
