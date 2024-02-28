@@ -13,7 +13,26 @@ import { MyProgressBarComponent } from './ProgressComponent';
 })
 
 export class ProductComponent {
+  lastupdate: number = 0;
+  progressbarvalue: number = 0;
 
+  calcScore() {
+    if (this.product.timeleft != 0) {
+      let tempsEcoule = Date.now() - this.lastupdate;
+      //this.lastupdate = Date.now();
+      this.product.timeleft = this.product.timeleft - tempsEcoule;
+      if (this.product.timeleft <= 0) {
+        this.product.timeleft = 0;
+        this.progressbarvalue = 0;
+      }
+      else {
+        this.progressbarvalue = ((this.product.vitesse - this.product.timeleft) / this.product.vitesse) * 100 }
+
+      }
+    }
+    ngOnInit(): void {
+      setInterval(() => { this.calcScore(); }, 100);
+  }
 
   product: Product = new Product();
   @Input()
