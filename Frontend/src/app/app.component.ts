@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { World } from './world';
 import { GraphqlService } from './graphql.service';
 import { BigvaluePipe } from './bigvalue.pipe';
+import { Product } from './world';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ import { BigvaluePipe } from './bigvalue.pipe';
 })
 export class AppComponent {
   server = ""
+  
 
   world: World = new World();
     constructor(private service: GraphqlService) {
@@ -20,5 +22,10 @@ export class AppComponent {
      res => {
      this.world = res.data.getWorld;
      });
+    }
+    onProductionDone(p: Product) {
+      this.world.money += p.revenu * p.quantite;
+      this.world.score += p.revenu * p.quantite;
+      this.badgeManagers();
     }
 }

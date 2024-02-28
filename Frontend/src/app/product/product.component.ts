@@ -19,19 +19,26 @@ export class ProductComponent {
   calcScore() {
     if (this.product.timeleft != 0) {
       let tempsEcoule = Date.now() - this.lastupdate;
-      //this.lastupdate = Date.now();
+      this.lastupdate = Date.now();
       this.product.timeleft = this.product.timeleft - tempsEcoule;
       if (this.product.timeleft <= 0) {
         this.product.timeleft = 0;
         this.progressbarvalue = 0;
+        this.notifyProduction.emit(this.product);
       }
       else {
-        this.progressbarvalue = ((this.product.vitesse - this.product.timeleft) / this.product.vitesse) * 100 }
-
+        this.progressbarvalue = ((this.product.vitesse - this.product.timeleft) / this.product.vitesse) * 100
       }
+      if (this.product.managerUnlocked && this.product.timeleft == 0 && this.product.quantite > 0) {
+        this.progressbarvalue = ((this.product.vitesse - this.product.timeleft) / this.product.vitesse) * 100;
+        this.product.timeleft = this.product.vitesse;
+        this.lastupdate = Date.now();
+      }
+
     }
-    ngOnInit(): void {
-      setInterval(() => { this.calcScore(); }, 100);
+  }
+  ngOnInit(): void {
+    setInterval(() => { this.calcScore(); }, 100);
   }
 
   product: Product = new Product();
@@ -39,7 +46,8 @@ export class ProductComponent {
   set prod(value: Product) {
     this.product = value;
   }
-
+  @Output() notifyProduction: EventEmitter<Product> = new
+    EventEmitter<Product>();
 }
 
 
