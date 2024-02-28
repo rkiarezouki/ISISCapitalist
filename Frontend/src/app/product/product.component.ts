@@ -34,7 +34,6 @@ export class ProductComponent {
         this.product.timeleft = this.product.vitesse;
         this.lastupdate = Date.now();
       }
-
     }
   }
   ngOnInit(): void {
