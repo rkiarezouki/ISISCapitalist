@@ -1,10 +1,24 @@
-<header>
-    <div>
-        <span>
-          <img [attr.src]="server+world.logo" id='imgMonde' />
-        </span>
-        <span id="worldname"> {{world.name}} </span>
-        <span [innerHTML]="world.money | bigvalue"> </span>
+<div class="header">
+  <div> <span>
+      <img [attr.src]="server+world.logo" id='imgMonde' />
+    </span>
+    <span id="worldname"> {{world.name}} </span>
+  </div>
+  <div><span [innerHTML]="world.money | bigvalue"> </span> </div>
+  <div> multiplicateur </div>
+  <div> ID du joueur </div>
+</div>
+<div class="main">
+  <div> liste des boutons de menu </div>
+  <div class="product">
+    <div> 
+      <app-product (notifyProduction)="onProductionDone($event)"
+       [money]="world.money" [product]="world.products[0]" />
     </div>
-</header>
-(notifyProduction)="onProductionDone($event)" 
+    <div> second produit </div>
+    <div> troisième produit </div>
+    <div> quatrième produit </div>
+    <div> cinquième produit </div>
+    <div> sixième produit </div>
+  </div>
+</div>

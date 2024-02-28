@@ -23,9 +23,9 @@ export class AppComponent {
      this.world = res.data.getWorld;
      });
     }
-    //onProductionDone(p: Product) {
-      //this.world.money += p.revenu * p.quantite;
-      //this.world.score += p.revenu * p.quantite;
-      //this.badgeManagers();
-    //}
+    onProductionDone(p: Product) {
+      this.world.money += p.revenu * p.quantite;
+      this.world.score += p.revenu * p.quantite;
+    }
+
 }
