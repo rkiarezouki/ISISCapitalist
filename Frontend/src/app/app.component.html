@@ -1,1 +1,9 @@
-{{world.name}}
+<header>
+    <div>
+        <span>
+          <img [attr.src]="server+world.logo" id='imgMonde' />
+        </span>
+        <span id="worldname"> {{world.name}} </span>
+        <span [innerHTML]="world.money | bigvalue"> </span>
+    </div>
+</header>
