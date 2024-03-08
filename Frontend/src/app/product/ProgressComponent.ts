@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, NgZone, OnChanges, OnDestroy, SimpleChanges, ViewChild} from '@angular/core';
+import { Component, ElementRef, Input, NgZone, OnChanges, OnDestroy, SimpleChanges, ViewChild } from '@angular/core';
 
 export enum Orientation {
   horizontal = 'horizontal',
@@ -8,31 +8,32 @@ export enum Orientation {
 @Component({
   selector: 'app-my-progress-bar',
   template: '<canvas style="height: 100% ; width: 100%" #canvasRef></canvas>',
+  standalone: true
 })
 export class MyProgressBarComponent implements OnChanges, OnDestroy {
 
-@Input()
-frontcolor = '';
-@Input()
-backcolor = '';
+  @Input()
+  frontcolor = '';
+  @Input()
+  backcolor = '';
 
-@Input()
-initialValue = 0;
+  @Input()
+  initialValue = 0;
 
-@Input()
-vitesse = 0;
+  @Input()
+  vitesse = 0;
 
-@Input()
-orientation: Orientation = Orientation.horizontal;
+  @Input()
+  orientation: Orientation = Orientation.horizontal;
 
-@Input()
-auto = false;
+  @Input()
+  auto = false;
 
-@Input()
-run = false;
+  @Input()
+  run = false;
 
-@ViewChild('canvasRef') canvasRef: ElementRef | undefined;
-animationRef = {value: 0};
+  @ViewChild('canvasRef') canvasRef: ElementRef | undefined;
+  animationRef = { value: 0 };
 
   constructor(private ngZone: NgZone) {
   }
@@ -53,7 +54,7 @@ animationRef = {value: 0};
     }
   }
 
-restartAnim() {
+  restartAnim() {
     if (this.vitesse > 0 && this.run) {
       if (this.animationRef.value !== 0) { cancelAnimationFrame(this.animationRef.value); }
       const ref = this.canvasRef;
@@ -66,12 +67,12 @@ restartAnim() {
     }
   }
 
-ngOnDestroy() {
+  ngOnDestroy() {
     if (this.animationRef.value !== 0) { cancelAnimationFrame(this.animationRef.value); }
   }
 
-animate(canvasRef: ElementRef, initialValue: number, orientation: Orientation, vitesse: number,
-        animationRef: { value: number }, auto: boolean, frontcolor: string, backcolor: string) {
+  animate(canvasRef: ElementRef, initialValue: number, orientation: Orientation, vitesse: number,
+    animationRef: { value: number }, auto: boolean, frontcolor: string, backcolor: string) {
     let dateRef: number | undefined;
     const ctx = canvasRef.nativeElement.getContext('2d');
     let widthRef = 0;

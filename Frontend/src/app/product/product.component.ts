@@ -45,6 +45,10 @@ export class ProductComponent {
   set prod(value: Product) {
     this.product = value;
   }
+
+  @Input()
+  money =0
+
   @Output() notifyProduction: EventEmitter<Product> = new
     EventEmitter<Product>();
 }

@@ -4,11 +4,12 @@ import { World } from './world';
 import { GraphqlService } from './graphql.service';
 import { BigvaluePipe } from './bigvalue.pipe';
 import { Product } from './world';
+import { ProductComponent } from './product/product.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, BigvaluePipe],
+  imports: [RouterOutlet, BigvaluePipe, ProductComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
