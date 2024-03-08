@@ -1,7 +1,7 @@
 import { AppComponent } from '../app.component';
 import { Product } from '../world';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { MyProgressBarComponent } from './ProgressComponent';
+import { MyProgressBarComponent, Orientation } from './ProgressComponent';
 
 
 @Component({
@@ -15,6 +15,12 @@ import { MyProgressBarComponent } from './ProgressComponent';
 export class ProductComponent {
   lastupdate: number = 0;
   progressbarvalue: number = 0;
+  
+  run = false
+  orientation = Orientation.horizontal
+  auto = false
+  vitesse =0
+  initialValue=0
 
   calcScore() {
     if (this.product.timeleft != 0) {
