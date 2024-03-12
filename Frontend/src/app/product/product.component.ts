@@ -2,7 +2,7 @@ import { AppComponent } from '../app.component';
 import { Product } from '../world';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MyProgressBarComponent, Orientation } from './ProgressComponent';
-
+import { GraphqlService } from '../graphql.service';
 
 @Component({
   selector: 'app-product',
@@ -16,6 +16,7 @@ export class ProductComponent {
   lastupdate: number = 0;
   progressbarvalue: number = 0;
   
+  server =""
   run = false
   orientation = Orientation.horizontal
   auto = false

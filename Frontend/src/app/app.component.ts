@@ -15,7 +15,6 @@ import { ProductComponent } from './product/product.component';
 })
 export class AppComponent {
   server = ""
-  
 
   world: World = new World();
     constructor(private service: GraphqlService) {
