@@ -15,13 +15,13 @@ import { GraphqlService } from '../graphql.service';
 export class ProductComponent {
   lastupdate: number = 0;
   progressbarvalue: number = 0;
-  
-  server =""
+  _qtmulti: string="";
+  server = ""
   run = false
   orientation = Orientation.horizontal
   auto = false
-  vitesse =0
-  initialValue=0
+  vitesse = 0
+  initialValue = 0
 
   calcScore() {
     if (this.product.timeleft != 0) {
@@ -54,10 +54,29 @@ export class ProductComponent {
   }
 
   @Input()
-  money =0
+  money = 0
 
   @Output() notifyProduction: EventEmitter<Product> = new
     EventEmitter<Product>();
+
+  
+  @Input()
+  set qtmulti(value: string) {
+    this._qtmulti = value;
+    if (this._qtmulti && this.product) this.calcMaxCanBuy();
+  }
+  @Input()
+  set moneyJoueur(value: number) {
+    this.money = value;
+    if (this.money && this.product) this.calcMaxCanBuy();
+  }
+  @Input()
+  calcMaxCanBuy() {
+    let argent = this.money;
+    let calcmaxcanbuy = (Math.log(1 - (argent * (1 - this.product.croissance)) / this.product.cout) / (Math.log(this.product.croissance)))
+  }
+
+ 
 }
 
 

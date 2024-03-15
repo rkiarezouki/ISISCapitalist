@@ -5,7 +5,7 @@
     <span id="worldname"> {{world.name}} </span>
   </div>
   <div><span [innerHTML]="world.money | bigvalue"> </span> </div>
-  <div> multiplicateur </div>
+  <div> <button (click)="onMultiplicateur()" class="multiplicateur" type="button"> Multiplicateur:{{_qtmulti}}</button></div>
   <div> ID du joueur </div>
 </div>
 <div class="main">
