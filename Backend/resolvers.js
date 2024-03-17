@@ -10,6 +10,48 @@ function saveWorld(context) {
         })
 }
 
+function qtProduitSupplementaire(product, elapseTime) { //calculer Quantité de produits en fonction du temps écoulé
+    let TempsRestant = product.timeleft - elapseTime //temps de production restant
+    if(!product.managerUnlocked){ //Si manager pas débloqué
+        if(product.timeleft !== 0 && TempsRestant <= 0){ //production finie
+            product.timeleft = 0
+            return 1 //1 produit de plus
+        }
+        else if(product.timeleft!==0 && TempsRestant > 0){ //en cours de production
+            product.timeleft -= elapseTime
+            return 0
+        }
+        else{ //aucune production
+            return 0
+        }
+    }
+    else{ //Manager débloqué
+        if(TempsRestant < 0){ //déjà produit
+            product.timeleft = (product.vitesse - (-TempsRestant%product.vitesse))
+            return (1 + (Math.floor(-TempsRestant/product.vitesse)))
+        }
+        else if(TempsRestant === 0){ //va être produit
+            product.timeleft = product.vitesse
+            return 1
+        }
+        else{ //pas de production
+            product.timeleft -= elapseTime
+            return 0
+        }
+    }
+}
+function updateMoney(context) { //mettre a jour l'argent en fonction de la quantité de produit supplémentaire
+    let total = 0
+    context.world.products.forEach(p => {
+        let time = Date.now() - Number(context.world.lastupdate)
+        let qtProduit = qtProduitSupplementaire(p, time)
+        total += qtProduit * p.quantite * p.revenu * (1 + context.world.activeangels * context.world.angelbonus / 100)
+    })
+    context.world.lastupdate = Date.now().toString()
+    context.world.money += total
+    context.world.score += total
+}
+
 module.exports = {
     Query: {
         getWorld(parent, args, context, info) {
@@ -35,6 +77,7 @@ module.exports = {
             produit.cout = Math.pow(1 + produit.croissance, args.quantite) * produit.cout;
 
             saveWorld(context);
+            updateMoney(context)
             return produit;
         },
 
@@ -45,7 +88,8 @@ module.exports = {
             }
             produit.timeleft = produit.vitesse;
             context.world.lastupdate = Date.now().toString();
-            saveWorld(context)
+            saveWorld(context);
+            updateMoney(context)
         },
 
         engagerManager(parent, args, context) {
@@ -57,8 +101,8 @@ module.exports = {
             
             manager.unlocked = true
             product.managerUnlocked = true
-            saveWorld(context)
-            
+            saveWorld(context);
+            updateMoney(context)
         }
     }
 };
