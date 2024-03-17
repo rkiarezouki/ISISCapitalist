@@ -3,7 +3,7 @@ import { Product } from '../world';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MyProgressBarComponent, Orientation } from './ProgressComponent';
 import { GraphqlService } from '../graphql.service';
-
+  
 @Component({
   selector: 'app-product',
   standalone: true,

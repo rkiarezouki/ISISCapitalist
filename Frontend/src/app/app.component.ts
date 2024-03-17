@@ -4,12 +4,13 @@ import { World } from './world';
 import { GraphqlService } from './graphql.service';
 import { BigvaluePipe } from './bigvalue.pipe';
 import { Product } from './world';
+import { FormsModule } from '@angular/forms';
 import { ProductComponent } from './product/product.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, BigvaluePipe, ProductComponent],
+  imports: [RouterOutlet, BigvaluePipe, FormsModule, ProductComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 
@@ -17,6 +18,7 @@ import { ProductComponent } from './product/product.component';
 export class AppComponent {
   server = ""
   _qtmulti = "1";
+  username: string = '';
 
   world: World = new World();
   constructor(private service: GraphqlService) {
@@ -41,5 +43,15 @@ export class AppComponent {
     }
     else {this._qtmulti = "1"}
 
+  }
+
+  getUsername() {
+    if (localStorage.getItem("username")) {
+      this.username = localStorage.getItem("username")!;
+    }
+  }
+
+  onUsernameChanged() {
+    localStorage.setItem("username", this.username);
   }
 }

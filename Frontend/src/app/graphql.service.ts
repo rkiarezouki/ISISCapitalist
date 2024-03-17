@@ -28,7 +28,5 @@ export class GraphqlService {
   getWorld() {
     return this.createClient().query(GET_WORLD, {}).toPromise();
   }
-
-
 }
 
