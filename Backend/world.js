@@ -1,7 +1,7 @@
 module.exports = {
     "name": "MarioWorld",
     "logo": "icones/logomonde.jpg",
-    "money": 0,
+    "money": 500,
     "score": 0,
     "totalangels": 0,
     "activeangels": 0,
@@ -38,7 +38,7 @@ module.exports = {
                     "typeratio": "vitesse",
                     "unlocked": "false"
                 }]
-            //…
+            
         },
         {
             "id": 2,
@@ -70,9 +70,9 @@ module.exports = {
                     "typeratio": "vitesse",
                     "unlocked": "false"
                 }]
-            //…
+            
         }
-         //…
+        
     ],
     "allunlocks": [
         {
@@ -83,8 +83,8 @@ module.exports = {
             "ratio": 2,
             "typeratio": "gain",
             "unlocked": "false"
-        },
-        //  …
+        }
+        
     ],
     "upgrades": [
         {
@@ -95,8 +95,8 @@ module.exports = {
             "ratio": 3,
             "typeratio": "gain",
             "unlocked": "false"
-        },
-        //  …
+        }
+        
     ],
     "angelupgrades": [
         {
@@ -107,8 +107,8 @@ module.exports = {
             "ratio": 3,
             "typeratio": "gain",
             "unlocked": "false"
-        },
-        // …
+        }
+        
     ],
     "managers": [
         {
@@ -164,6 +164,6 @@ module.exports = {
             "ratio": 0,
             "typeratio": "gain",
             "unlocked": "false"
-        },
+        }
     ]
 };
