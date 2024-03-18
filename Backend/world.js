@@ -27,7 +27,7 @@ module.exports = {
                     "idcible": 1,
                     "ratio": 2,
                     "typeratio": "vitesse",
-                    "unlocked": "false"
+                    "unlocked": false
                 },
                 {
                     "name": "Banane géante",
@@ -36,7 +36,7 @@ module.exports = {
                     "idcible": 1,
                     "ratio": 2,
                     "typeratio": "vitesse",
-                    "unlocked": "false"
+                    "unlocked": false
                 }]
             
         },
@@ -59,7 +59,7 @@ module.exports = {
                     "idcible": 2,
                     "ratio": 2,
                     "typeratio": "vitesse",
-                    "unlocked": "false"
+                    "unlocked": false
                 },
                 {
                     "name": "Champignon doré",
@@ -68,7 +68,7 @@ module.exports = {
                     "idcible": 2,
                     "ratio": 2,
                     "typeratio": "vitesse",
-                    "unlocked": "false"
+                    "unlocked": false
                 }]
             
         }
@@ -82,7 +82,7 @@ module.exports = {
             "idcible": 1,
             "ratio": 2,
             "typeratio": "gain",
-            "unlocked": "false"
+            "unlocked": false
         }
         
     ],
@@ -94,7 +94,7 @@ module.exports = {
             "idcible": 1,
             "ratio": 3,
             "typeratio": "gain",
-            "unlocked": "false"
+            "unlocked": false
         }
         
     ],
@@ -106,7 +106,7 @@ module.exports = {
             "idcible": 0,
             "ratio": 3,
             "typeratio": "gain",
-            "unlocked": "false"
+            "unlocked": false
         }
         
     ],
@@ -118,7 +118,7 @@ module.exports = {
             "idcible": 1,
             "ratio": 0,
             "typeratio": "gain",
-            "unlocked": "false"
+            "unlocked": false
         },
         {
             "name": "Luigi",
@@ -127,7 +127,7 @@ module.exports = {
             "idcible": 2,
             "ratio": 0,
             "typeratio": "gain",
-            "unlocked": "false"
+            "unlocked": false
         },
         {
             "name": "Peach",
@@ -136,7 +136,7 @@ module.exports = {
             "idcible": 3,
             "ratio": 0,
             "typeratio": "gain",
-            "unlocked": "false"
+            "unlocked": false
         },
         {
             "name": "Daisy",
@@ -145,7 +145,7 @@ module.exports = {
             "idcible": 4,
             "ratio": 0,
             "typeratio": "gain",
-            "unlocked": "false"
+            "unlocked": false
         },
         {
             "name": "Yoshi",
@@ -154,7 +154,7 @@ module.exports = {
             "idcible": 5,
             "ratio": 0,
             "typeratio": "gain",
-            "unlocked": "false"
+            "unlocked": false
         },
         {
             "name": "Toad",
@@ -163,7 +163,7 @@ module.exports = {
             "idcible": 6,
             "ratio": 0,
             "typeratio": "gain",
-            "unlocked": "false"
+            "unlocked": false
         }
     ]
 };
