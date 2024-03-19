@@ -53,6 +53,11 @@ export class ProductComponent {
     this.product = value;
   }
 
+  /*lancerProduction(){ this.service.lancerProduction(this.product).catch(reason =>
+    console.log("erreur: " + reason)
+    );
+  }*/
+    
   @Input()
   money = 0
 
