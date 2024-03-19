@@ -60,6 +60,7 @@ module.exports = {
         }
     },
     Mutation: {
+        //marche
         acheterQtProduit(parent, args, context) {
             const produit = context.world.products.find(p => p.id === args.id);
             if (!produit) {
@@ -81,9 +82,10 @@ module.exports = {
             return produit;
         },
 
+        //pas vérifier, faudra la vérifier (pas sûre qu'elle marche)
         lancerProductionProduit(parent, args, context) {
             const produit = context.world.products.find(p => p.id === args.id);
-            if(!product){
+            if(!produit){
                 throw new Error(`Le produit avec l'id ${args.id} n'existe pas`)
             }
             produit.timeleft = produit.vitesse;
@@ -92,6 +94,7 @@ module.exports = {
             updateMoney(context)
         },
 
+        //marche
         engagerManager(parent, args, context) {
             let manager = context.world.managers.find(p => p.name === args.name)
             let product = context.world.products.find(p => p.id === manager.idcible)
