@@ -1,14 +1,103 @@
-.header {
-    display: grid;
-    grid-template-columns: 25% 25% 30% 20%;
+/* Global reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: red; /* Light gray background */
+}
+
+/* Container styles */
+.tout {
+    max-width: 1200px; /* Set maximum width */
+    margin: 20px auto; /* Center container and add some space around it */
+    background-color: beige; /* White background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    padding: 20px; /* Add some padding */
+}
+
+/* Header styles */
+.header {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center align items vertically */
+    justify-content: space-between; /* Space out items */
+    margin-bottom: 20px; /* Add some space between header and main content */
+}
+
+#imgMonde {
+    width: 50px; /* Set image width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+#worldname {
+    font-size: 20px; /* Increase font size */
+}
+
+/* Main content styles */
 .main {
-    display: grid;
-    grid-template-columns: 20% 80%;
+    display: grid; /* Use grid for layout */
+    grid-template-columns: 200px auto; /* Sidebar and main content */
+    grid-gap: 20px; /* Add gap between columns */
 }
 
 .product {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(45%, 1fr)); /* Responsive grid */
+    grid-gap: 20px; /* Add gap between products */
+}
+
+.product div {
+    background-color: #f9f9f9; /* Light gray background for product items */
+    padding: 10px; /* Add more padding */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+
+/* Button styles */
+.multiplicateur, .achat {
+    background-color: #007bff; /* Blue button color */
+    color: #fff; /* White text color */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners */
+    padding: 10px 20px; /* Add padding */
+    cursor: pointer; /* Add pointer cursor */
+    transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+.multiplicateur:hover, .achat:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+li{
+    list-style: none;
+}
+/* List styles */
+ul {
+    padding: 0; /* Remove default padding */
+}
+
+li {
+    list-style: none; /* Remove default list style */
+}
+
+li button {
+    width: 100%; /* Make buttons fill the entire width of the list item */
+    background-color: #007bff; /* Blue button color */
+    color: #fff; /* White text color */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners */
+    padding: 10px 20px; /* Add padding */
+    margin-bottom: 30px; /* Add margin between buttons */
+    cursor: pointer; /* Add pointer cursor */
+    transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+li button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
 }

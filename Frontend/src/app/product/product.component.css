@@ -1,24 +1,31 @@
 #progression {
-    background-color: #d9c8c1; 
-    height: 50px;
-    width: 200px;
+    background-color: #d9c8c1;
+    height: 20px; /* Adjust height to fit your design */
+    width: 100%; /* Adjust width to fit your design */
+    border-radius: 10px; /* Add border-radius for rounded corners */
+    margin-bottom: 20px; /* Add some spacing between elements */
 }
 
 .productdetails {
-    margin: 10px;
+    margin: 20px; /* Increase margin for better spacing */
+    padding: 20px; /* Add padding for better readability */
+    border: 1px solid #ddd; /* Add border for a visual separation */
+    border-radius: 8px; /* Add border-radius for rounded corners */
+    background-color: #f9f9f9; /* Add a light background color */
 }
 
 table {
-    border: 1px solid #ddd;
-    padding: 20px;
+    width: 100%;
+    border-collapse: collapse;
 }
 
 .productQuantite {
     padding: 10px;
     color: blue;
+    font-family: Arial, sans-serif;
 }
 
-.achat{
+.achat {
     background-color: #04AA6D; /* Green */
     border: none;
     border-radius: 25% 10%;
@@ -28,4 +35,16 @@ table {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    cursor: pointer; /* Add cursor pointer for better usability */
+    transition: background-color 0.3s; /* Add smooth transition */
+    font-family: Arial, sans-serif;
+}
+
+.achat:hover {
+    background-color: #21825e; /* Darker green on hover */
+}
+
+.progressbar {
+    height: 100%;
+    border-radius: 10px; /* Rounded corners */
 }

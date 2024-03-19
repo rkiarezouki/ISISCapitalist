@@ -6,6 +6,7 @@ import { BigvaluePipe } from './bigvalue.pipe';
 import { Product } from './world';
 import { FormsModule } from '@angular/forms';
 import { ProductComponent } from './product/product.component';
+import { BACKEND } from './request';
 
 @Component({
   selector: 'app-root',

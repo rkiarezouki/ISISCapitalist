@@ -1,24 +1,36 @@
-<div class="header">
-  <div> <span>
-      <img [attr.src]="server+world.logo" id='imgMonde' />
-    </span>
-    <span id="worldname"> {{world.name}} </span>
-  </div>
-  <div><span [innerHTML]="world.money | bigvalue"> </span> </div>
-  <div> <button (click)="onMultiplicateur()" class="multiplicateur" type="button"> Multiplicateur:{{_qtmulti}}</button></div>
-  <div> ID du joueur  <input type="text" [(ngModel)]="username" (change)="onUsernameChanged()"/></div>
-</div>
-<div class="main">
-  <div> liste des boutons de menu </div>
-  <div class="product">
-    <div> 
-      <app-product (notifyProduction)="onProductionDone($event)"
-       [money]="world.money" [prod]="world.products[1]" />
+<div class="tout">
+  <div class="header">
+    <div> <span>
+        <img [attr.src]="server+world.logo" id='imgMonde' />
+      </span>
+      <span id="worldname"> {{world.name}} </span>
     </div>
-    <div> second produit </div>
-    <div> troisième produit </div>
-    <div> quatrième produit </div>
-    <div> cinquième produit </div>
-    <div> sixième produit </div>
+    <div><span [innerHTML]="world.money | bigvalue"> </span> </div>
+    <div> <button (click)="onMultiplicateur()" class="multiplicateur" type="button">
+        Multiplicateur:{{_qtmulti}}</button></div>
+    <div> ID du joueur <input type="text" [(ngModel)]="username" (change)="onUsernameChanged()" /></div>
+  </div>
+  <div class="main">
+    <div>
+      <ul>
+        <li><button>Unlock</button></li>
+        <li><button>Cash Upgrades</button></li>
+        <li><button>Angel Upgrades</button></li>
+        <li><button>Managers</button></li>
+        <li><button>Investors</button></li>
+      </ul>
+
+    </div>
+    <div class="product">
+      <div>
+        <app-product (notifyProduction)="onProductionDone($event)" [money]="world.money" [prod]="world.products[0]" />
+      </div>
+      <div> <app-product (notifyProduction)="onProductionDone($event)" [money]="world.money"
+          [prod]="world.products[1]" /> </div>
+      <div> Troisième produit</div>
+      <div> Quatrième produit</div>
+      <div> Cinquième produit</div>
+      <div> Sixième produit</div>
+    </div>
   </div>
 </div>

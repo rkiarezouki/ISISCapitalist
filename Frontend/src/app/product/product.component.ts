@@ -1,5 +1,5 @@
 import { AppComponent } from '../app.component';
-import { Product } from '../world';
+import { Product, World } from '../world';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MyProgressBarComponent, Orientation } from './ProgressComponent';
 import { GraphqlService } from '../graphql.service';
@@ -22,7 +22,7 @@ export class ProductComponent {
   auto = false
   vitesse = 0
   initialValue = 0
-
+  world : World = new World();
   calcScore() {
     if (this.product.timeleft != 0) {
       let tempsEcoule = Date.now() - this.lastupdate;
@@ -51,6 +51,10 @@ export class ProductComponent {
   @Input()
   set prod(value: Product) {
     this.product = value;
+  }
+
+  constructor(private servicesql : GraphqlService){
+    this.server = servicesql.server;
   }
 
   /*lancerProduction(){ this.service.lancerProduction(this.product).catch(reason =>
@@ -82,6 +86,18 @@ export class ProductComponent {
   }
 
  
+  startFabrication() {
+    if(this.product.timeleft == 0) {
+      this.servicesql.lancerProduction(this.product).catch(reason =>
+        console.log("Erreur : " + reason)
+      );
+
+      this.product.timeleft = this.product.vitesse;
+      this.run = true;
+      this.world.lastupdate = Date.now();
+    }
+  }
+
 }
 
 

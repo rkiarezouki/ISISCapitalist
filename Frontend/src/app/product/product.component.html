@@ -1,32 +1,42 @@
 <div class="productdetails">
-    <table class="tableproduct">
+  <table class="tableproduct">
       <tbody>
-        <tr>
-          <th ><span class="productnom" >{{product.name}} </span></th>
-          <th><span class="productTimeLeft"  >timeleft: {{product.timeleft}}</span></th>
-          
-        </tr>
-        <tr>
-          <td><img class="productImage" [src]="server+product.logo" [alt]="product.name"/><span class="productQuantite" >:     {{product.quantite}}</span></td>
-          <td><span class="productCout" > cout: {{product.cout}}</span></td>
-        </tr>
-        <tr>
-          <td><button class="achat" type="button">Acheter !</button></td>
-          <td><span class="productVitesse" >vitesse: {{product.vitesse}}</span></td>
-        </tr>
-        <tr>
-          <td><div id="progression">
-            <app-my-progress-bar class="progressbar" [run]="run" [auto]="auto"
-                       frontcolor="#008800"
-                       backcolor="#d9c8c1"
-                       [orientation]="orientation" 
-                       [vitesse]="vitesse"
-                       [initialValue]="initialValue">
-            </app-my-progress-bar>
-        </div></td>
-        </tr>
-  
+          <tr>
+              <th><span class="productnom">{{product.name}} ({{product.quantite}})</span></th>
+              <th><span class="productTimeLeft">Temps restant: {{product.timeleft}}</span></th>
+          </tr>
+          <tr>
+              <td>
+                  <button class="prodproduct" (click)="startFabrication()">
+                      <img class="productImage" [src]="server+product.logo" [alt]="product.name"/>
+                  </button>
+                  
+              </td>
+              <td>
+                  <span class="productCout">Coût: {{product.cout}}</span>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <button class="achat" type="button">Acheter !</button>
+              </td>
+              <td>
+                  <span class="productVitesse">Vitesse: {{product.vitesse}}</span>
+              </td>
+          </tr>
+          <tr>
+              <td colspan="2">
+                  <div id="progression">
+                      <app-my-progress-bar class="progressbar" [run]="run" [auto]="auto"
+                          frontcolor="#008800"
+                          backcolor="#d9c8c1"
+                          [orientation]="orientation" 
+                          [vitesse]="product.vitesse"
+                          [initialValue]="initialValue">
+                      </app-my-progress-bar>
+                  </div>
+              </td>
+          </tr>
       </tbody>
-      
-    </table>
+  </table>
 </div>
