@@ -16,6 +16,7 @@ export class ProductComponent {
   lastupdate: number = 0;
   progressbarvalue: number = 0;
   _qtmulti: string="";
+  BACKEND = "http://localhost:4000/";
   server = ""
   run = false
   orientation = Orientation.horizontal
@@ -30,14 +31,10 @@ export class ProductComponent {
       this.product.timeleft = this.product.timeleft - tempsEcoule;
       if (this.product.timeleft <= 0) {
         this.product.timeleft = 0;
-        this.progressbarvalue = 0;
+        this.run = false;
         this.notifyProduction.emit(this.product);
       }
-      else {
-        this.progressbarvalue = ((this.product.vitesse - this.product.timeleft) / this.product.vitesse) * 100
-      }
       if (this.product.managerUnlocked && this.product.timeleft == 0 && this.product.quantite > 0) {
-        this.progressbarvalue = ((this.product.vitesse - this.product.timeleft) / this.product.vitesse) * 100;
         this.product.timeleft = this.product.vitesse;
         this.lastupdate = Date.now();
       }

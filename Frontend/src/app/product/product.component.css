@@ -48,3 +48,7 @@ table {
     height: 100%;
     border-radius: 10px; /* Rounded corners */
 }
+
+.productImage{
+    width: 40px;
+}

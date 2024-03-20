@@ -2,16 +2,17 @@
   <table class="tableproduct">
       <tbody>
           <tr>
-              <th><span class="productnom">{{product.name}} ({{product.quantite}})</span></th>
+              
               <th><span class="productTimeLeft">Temps restant: {{product.timeleft}}</span></th>
           </tr>
           <tr>
               <td>
                   <button class="prodproduct" (click)="startFabrication()">
-                      <img class="productImage" [src]="server+product.logo" [alt]="product.name"/>
+                      <img class="productImage" [src]="BACKEND+product.logo" [alt]="product.name"/>
                   </button>
                   
               </td>
+              <td><span class="productnom">{{product.name}} ({{product.quantite}})</span></td>
               <td>
                   <span class="productCout">Coût: {{product.cout}}</span>
               </td>

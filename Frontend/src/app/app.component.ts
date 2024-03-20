@@ -18,6 +18,7 @@ import { BACKEND } from './request';
 })
 export class AppComponent {
   server = ""
+  BACKEND = "http://localhost:4000/";
   _qtmulti = "1";
   username: string = '';
 
