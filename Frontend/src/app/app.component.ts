@@ -36,14 +36,19 @@ export class AppComponent {
   onMultiplicateur() {
     if (this._qtmulti === "1") {
       this._qtmulti = "10";
-    } 
-    else if(this._qtmulti === "10"){
+    }
+    else if (this._qtmulti === "10") {
       this._qtmulti = "100";
     }
-    else if(this._qtmulti === "100"){
+    else if (this._qtmulti === "100") {
       this._qtmulti = "Max";
     }
-    else {this._qtmulti = "1"}
+    else { this._qtmulti = "1" }
+
+  }
+
+  onBuy(cout: number) {
+    this.world.money -= cout
 
   }
 
@@ -55,5 +60,9 @@ export class AppComponent {
 
   onUsernameChanged() {
     localStorage.setItem("username", this.username);
+  }
+
+  ngOnInit() {
+    this._qtmulti = "1";
   }
 }

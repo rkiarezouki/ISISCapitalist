@@ -37,5 +37,13 @@ export class GraphqlService {
     }).toPromise();
   }
 
+  acherterQtProduit(id: number, quantite: number) {
+    return this.createClient().mutation(ACHETER_PRODUIT, {
+      id: id,
+      
+        quantite : quantite
+    }).toPromise();
+  }
+
 }
 

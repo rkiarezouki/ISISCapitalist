@@ -19,7 +19,9 @@
           </tr>
           <tr>
               <td>
-                  <button class="achat" type="button">Acheter !</button>
+                  <button class="achat" (click)="acheterProduit()" type="button">
+                    Acheter !
+                  </button>
               </td>
               <td>
                   <span class="productVitesse">Vitesse: {{product.vitesse}}</span>
