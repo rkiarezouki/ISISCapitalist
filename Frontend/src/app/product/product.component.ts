@@ -3,7 +3,7 @@ import { Product, World } from '../world';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MyProgressBarComponent, Orientation } from './ProgressComponent';
 import { GraphqlService } from '../graphql.service';
-  
+
 @Component({
   selector: 'app-product',
   standalone: true,
@@ -15,7 +15,7 @@ import { GraphqlService } from '../graphql.service';
 export class ProductComponent {
   lastupdate: number = 0;
   progressbarvalue: number = 0;
-  _qtmulti: string="";
+  _qtmulti: string = "1";
   BACKEND = "http://localhost:4000/";
   server = ""
   run = false
@@ -23,7 +23,8 @@ export class ProductComponent {
   auto = false
   vitesse = 0
   initialValue = 0
-  world : World = new World();
+  quantiteProduct = 1
+  world: World = new World();
   calcScore() {
     if (this.product.timeleft != 0) {
       let tempsEcoule = Date.now() - this.lastupdate;
@@ -36,7 +37,7 @@ export class ProductComponent {
       }
       if (this.product.managerUnlocked && this.product.timeleft == 0 && this.product.quantite > 0) {
         this.product.timeleft = this.product.vitesse;
-        this.auto=true;
+        this.auto = true;
         this.lastupdate = Date.now();
       }
     }
@@ -51,7 +52,7 @@ export class ProductComponent {
     this.product = value;
   }
 
-  constructor(private servicesql : GraphqlService){
+  constructor(private servicesql: GraphqlService) {
     this.server = servicesql.server;
   }
 
@@ -59,14 +60,16 @@ export class ProductComponent {
     console.log("erreur: " + reason)
     );
   }*/
-    
+
   @Input()
   money = 0
 
   @Output() notifyProduction: EventEmitter<Product> = new
     EventEmitter<Product>();
 
-  
+  @Output() notifyAchat: EventEmitter<number> = new
+    EventEmitter<number>();
+
   @Input()
   set qtmulti(value: string) {
     this._qtmulti = value;
@@ -83,9 +86,9 @@ export class ProductComponent {
     let calcmaxcanbuy = (Math.log(1 - (argent * (1 - this.product.croissance)) / this.product.cout) / (Math.log(this.product.croissance)))
   }
 
- 
+
   startFabrication() {
-    if(this.product.timeleft == 0) {
+    if (this.product.timeleft == 0) {
       this.servicesql.lancerProduction(this.product).catch(reason =>
         console.log("Erreur : " + reason)
       );
@@ -96,6 +99,33 @@ export class ProductComponent {
     }
   }
 
+  getQuantiteProduct() {
+    switch (this._qtmulti) {
+      case '1':
+        this.quantiteProduct = 1;
+        break;
+      case '10':
+        this.quantiteProduct = 10;
+        break;
+      case '100':
+        this.quantiteProduct = 100;
+        break;
+      case 'Max':
+        this.quantiteProduct = 20000;//avec calcmaxcanbuy
+        break;
+      default:
+        break;
+
+    }
+  }
+
+  acheterProduit() {
+    if (this.product.timeleft == 0) {
+      this.servicesql.acherterQtProduit(this.product.id, this.quantiteProduct).catch(reason =>
+        console.log("Erreur : " + reason)
+      );
+    }
+    this.product.quantite += this.quantiteProduct
+  }
+
 }
-
-
