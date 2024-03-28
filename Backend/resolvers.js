@@ -41,15 +41,15 @@ function qtProduitSupplementaire(product, elapseTime) { //calculer Quantité de 
     }
 }
 function updateMoney(context) { //mettre a jour l'argent en fonction de la quantité de produit supplémentaire
-    let total = 0
+    let somme = 0
     context.world.products.forEach(p => {
-        let time = Date.now() - Number(context.world.lastupdate)
-        let qtProduit = qtProduitSupplementaire(p, time)
-        total += qtProduit * p.quantite * p.revenu* (1 + context.world.activeangels * context.world.angelbonus / 100)
+        let tempsEcoule = Date.now() - Number(context.world.lastupdate)
+        let qtProduit = qtProduitSupplementaire(p, tempsEcoule)
+        somme = somme + (qtProduit * p.quantite * p.revenu* (1 + context.world.activeangels * context.world.angelbonus / 100))
     })
     context.world.lastupdate = Date.now().toString()
-    context.world.money += total
-    context.world.score += total
+    context.world.money += somme
+    context.world.score += somme
 }
 
 module.exports = {
@@ -66,17 +66,17 @@ module.exports = {
             updateMoney(context);
             const produit = context.world.products.find(p => p.id === args.id);
             if (!produit) {
-                throw new Error(`Le produit avec l'id ${args.id} n'existe pas`);
+                throw new Error(`Le produit d'id ${args.id} n'existe pas`);
             }
 
             const coutTotal = produit.cout * (1 - Math.pow(produit.croissance, args.quantite)) / (1 - produit.croissance);
 
             if (context.world.money < coutTotal) {
-                throw new Error(`Pas assez d'argent pour acheter ${args.quantite}  ${produit.name}`);
+                throw new Error(`Vous n'avez pas assez d'agent pour ajouter ce produit`);
             }
 
-            context.world.money -= coutTotal;
-            produit.quantite += args.quantite;
+            context.world.money = context.world.money - coutTotal;
+            produit.quantite = produit.quantite+ args.quantite;
             produit.cout = Math.pow(1 + produit.croissance, args.quantite) * produit.cout;
             saveWorld(context);
 
