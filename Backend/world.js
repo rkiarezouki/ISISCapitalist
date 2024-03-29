@@ -1,6 +1,6 @@
 module.exports = {
     "name": "MarioWorld",
-    "logo": "icones/logomonde.jpg",
+    "logo": "icones/mariworld.jpeg",
     "money": 500,
     "score": 0,
     "totalangels": 0,
@@ -43,7 +43,7 @@ module.exports = {
         {
             "id": 2,
             "name": "Champignon",
-            "logo": "icones/Champignon.jpeg",
+            "logo": "icones/Champignon.png",
             "cout": 4,
             "croissance": 1.07,
             "revenu": 1,

@@ -49,6 +49,7 @@ export class ProductComponent {
   product: Product = new Product();
   @Input()
   set prod(value: Product) {
+
     this.product = value;
   }
 
@@ -67,18 +68,18 @@ export class ProductComponent {
   @Output() notifyProduction: EventEmitter<Product> = new
     EventEmitter<Product>();
 
-  @Output() notifyAchat: EventEmitter<number> = new
-    EventEmitter<number>();
+  @Output() notifyAchat: EventEmitter<{qt:number, product:Product}> = new
+    EventEmitter<{qt:number, product:Product}>();
 
   @Input()
   set qtmulti(value: string) {
     this._qtmulti = value;
-    if (this._qtmulti && this.product) this.calcMaxCanBuy();
+    if (this._qtmulti && this.product) this.getQuantiteProduct();
   }
   @Input()
   set moneyJoueur(value: number) {
     this.money = value;
-    if (this.money && this.product) this.calcMaxCanBuy();
+    if (this.money && this.product) this.getQuantiteProduct();
   }
   @Input()
   calcMaxCanBuy() {
@@ -100,6 +101,7 @@ export class ProductComponent {
   }
 
   getQuantiteProduct() {
+
     switch (this._qtmulti) {
       case '1':
         this.quantiteProduct = 1;
@@ -117,6 +119,7 @@ export class ProductComponent {
         break;
 
     }
+    console.log(this.quantiteProduct)
   }
 
   acheterProduit() {
@@ -125,7 +128,11 @@ export class ProductComponent {
         console.log("Erreur : " + reason)
       );
     }
+    
     this.product.quantite += this.quantiteProduct
+    this.notifyAchat.emit({qt:this.quantiteProduct,product:this.product});
+    this.product.cout *= Math.pow(this.product.croissance , this.quantiteProduct)
+    console.log(this.quantiteProduct)
   }
 
 }

@@ -33,6 +33,7 @@ export class AppComponent {
     this.world.money += p.revenu * p.quantite;
     this.world.score += p.revenu * p.quantite;
   }
+
   onMultiplicateur() {
     if (this._qtmulti === "1") {
       this._qtmulti = "10";
@@ -44,10 +45,10 @@ export class AppComponent {
       this._qtmulti = "Max";
     }
     else { this._qtmulti = "1" }
-
   }
 
-  onBuy(cout: number) {
+  onBuy({qt, product} : {qt:number, product:Product}) {
+    let cout = product.cout * (1 - Math.pow(product.croissance, qt)) / (1 - product.croissance);
     this.world.money -= cout
 
   }

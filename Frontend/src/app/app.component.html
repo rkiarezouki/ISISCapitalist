@@ -23,7 +23,7 @@
     </div>
     <div class="product">
       <div>
-        <app-product (notifyProduction)="onProductionDone($event)" [money]="world.money" [prod]="world.products[0]" />
+        <app-product (notifyAchat)="onBuy($event)" (notifyProduction)="onProductionDone($event)" [money]="world.money" [prod]="world.products[0]" [qtmulti]="_qtmulti"/>
       </div>
       <div> <app-product (notifyProduction)="onProductionDone($event)" [money]="world.money"
           [prod]="world.products[1]" /> </div>
