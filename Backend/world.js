@@ -16,7 +16,7 @@ module.exports = {
             "croissance": 1.07,
             "revenu": 1,
             "vitesse": 500,
-            "quantite": 1,
+            "quantite": 0,
             "timeleft": 0,
             "managerUnlocked": false,
             "palliers": [
@@ -44,11 +44,11 @@ module.exports = {
             "id": 2,
             "name": "Champignon",
             "logo": "icones/Champignon.png",
-            "cout": 4,
-            "croissance": 1.07,
-            "revenu": 1,
-            "vitesse": 500,
-            "quantite": 1,
+            "cout": 60,
+            "croissance": 1.15,
+            "revenu": 60,
+            "vitesse": 3000,
+            "quantite": 0,
             "timeleft": 0,
             "managerUnlocked": false,
             "palliers": [
@@ -65,6 +65,107 @@ module.exports = {
                     "name": "Champignon doré",
                     "logo": "icones/champior.webp",
                     "seuil": 85,
+                    "idcible": 2,
+                    "ratio": 2,
+                    "typeratio": "vitesse",
+                    "unlocked": false
+                }]
+            
+        },
+        {
+            "id": 3,
+            "name": "Carapace",
+            "logo": "icones/carapacevert.jpg",
+            "cout": 720,
+            "croissance": 1.14,
+            "revenu": 540,
+            "vitesse": 6000,
+            "quantite": 0,
+            "timeleft": 0,
+            "managerUnlocked": false,
+            "palliers": [
+                {
+                    "name": "Carapace rouge",
+                    "logo": "icones/MK8-CarapaceRouge.webp",
+                    "seuil": 30,
+                    "idcible": 2,
+                    "ratio": 2,
+                    "typeratio": "vitesse",
+                    "unlocked": false
+                },
+                {
+                    "name": "Carapace bleue",
+                    "logo": "icones/BS.webp",
+                    "seuil": 85,
+                    "idcible": 2,
+                    "ratio": 2,
+                    "typeratio": "vitesse",
+                    "unlocked": false
+                }]
+            
+        },
+        {
+            "id": 4,
+            "name": "Fleur feu",
+            "logo": "icones/fleur.webp",
+            "cout": 8640,
+            "croissance": 1.13,
+            "revenu": 4320,
+            "vitesse": 12000,
+            "quantite": 0,
+            "timeleft": 0,
+            "managerUnlocked": false,
+            "palliers": [
+                {
+                    "name": "fleur or",
+                    "logo": "icones/fleuror.jpg",
+                    "seuil": 30,
+                    "idcible": 2,
+                    "ratio": 2,
+                    "typeratio": "vitesse",
+                    "unlocked": false
+                }]
+            
+        },
+        {
+            "id": 5,
+            "name": "Eclair",
+            "logo": "icones/eclair.png",
+            "cout": 103680,
+            "croissance": 1.12,
+            "revenu": 51840,
+            "vitesse": 500,
+            "quantite": 0,
+            "timeleft": 24000,
+            "managerUnlocked": false,
+            "palliers": [
+                {
+                    "name": "Nuage Eclair",
+                    "logo": "icones/MKWNuageZap.webp",
+                    "seuil": 30,
+                    "idcible": 2,
+                    "ratio": 2,
+                    "typeratio": "vitesse",
+                    "unlocked": false
+                }]
+            
+        },
+        {
+            "id": 6,
+            "name": "Piece",
+            "logo": "icones/piece.webp",
+            "cout": 1244160,
+            "croissance": 1.11,
+            "revenu": 622080,
+            "vitesse": 96000,
+            "quantite": 0,
+            "timeleft": 0,
+            "managerUnlocked": false,
+            "palliers": [
+                {
+                    "name": "Bloc de pieces",
+                    "logo": "icones/blocpiece.webp",
+                    "seuil": 30,
                     "idcible": 2,
                     "ratio": 2,
                     "typeratio": "vitesse",

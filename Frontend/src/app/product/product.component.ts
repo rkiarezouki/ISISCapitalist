@@ -128,10 +128,12 @@ export class ProductComponent {
         console.log("Erreur : " + reason)
       );
     }
-    
-    this.product.quantite += this.quantiteProduct
-    this.notifyAchat.emit({qt:this.quantiteProduct,product:this.product});
-    this.product.cout *= Math.pow(this.product.croissance , this.quantiteProduct)
+    let couttotal = this.product.cout * (1 - Math.pow(this.product.croissance, this.quantiteProduct)) / (1 - this.product.croissance)
+    if(this.world.money>couttotal){
+      this.product.quantite += this.quantiteProduct
+      this.product.cout *= Math.pow(this.product.croissance , this.quantiteProduct)
+      this.notifyAchat.emit({qt:this.quantiteProduct,product:this.product});
+    }
     console.log(this.quantiteProduct)
   }
 

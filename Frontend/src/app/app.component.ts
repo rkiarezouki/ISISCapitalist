@@ -49,8 +49,9 @@ export class AppComponent {
 
   onBuy({qt, product} : {qt:number, product:Product}) {
     let cout = product.cout * (1 - Math.pow(product.croissance, qt)) / (1 - product.croissance);
-    this.world.money -= cout
-
+    if(this.world.money>cout){
+      this.world.money -= cout
+    }
   }
 
   getUsername() {

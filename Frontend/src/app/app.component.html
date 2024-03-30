@@ -25,12 +25,21 @@
       <div>
         <app-product (notifyAchat)="onBuy($event)" (notifyProduction)="onProductionDone($event)" [money]="world.money" [prod]="world.products[0]" [qtmulti]="_qtmulti"/>
       </div>
-      <div> <app-product (notifyProduction)="onProductionDone($event)" [money]="world.money"
-          [prod]="world.products[1]" /> </div>
-      <div> Troisième produit</div>
-      <div> Quatrième produit</div>
-      <div> Cinquième produit</div>
-      <div> Sixième produit</div>
+      <div> 
+        <app-product (notifyAchat)="onBuy($event)" (notifyProduction)="onProductionDone($event)" [money]="world.money" [prod]="world.products[1]" [qtmulti]="_qtmulti"/>
+      </div>
+      <div> 
+        <app-product (notifyAchat)="onBuy($event)" (notifyProduction)="onProductionDone($event)" [money]="world.money" [prod]="world.products[2]" [qtmulti]="_qtmulti"/>
+      </div>
+      <div> 
+        <app-product (notifyAchat)="onBuy($event)" (notifyProduction)="onProductionDone($event)" [money]="world.money" [prod]="world.products[3]" [qtmulti]="_qtmulti"/>
+      </div>
+      <div>
+        <app-product (notifyAchat)="onBuy($event)" (notifyProduction)="onProductionDone($event)" [money]="world.money" [prod]="world.products[4]" [qtmulti]="_qtmulti"/>
+      </div>
+      <div>
+        <app-product (notifyAchat)="onBuy($event)" (notifyProduction)="onProductionDone($event)" [money]="world.money" [prod]="world.products[5]" [qtmulti]="_qtmulti"/>
+      </div>
     </div>
   </div>
 </div>

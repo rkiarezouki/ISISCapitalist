@@ -83,7 +83,7 @@ module.exports = {
             return produit;
         },
 
-        //pas vérifier, faudra la vérifier (pas sûre qu'elle marche)
+        //marche
         lancerProductionProduit(parent, args, context) {
             updateMoney(context);
 

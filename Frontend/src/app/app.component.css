@@ -93,7 +93,7 @@ li button {
     border: none; /* Remove border */
     border-radius: 4px; /* Rounded corners */
     padding: 10px 20px; /* Add padding */
-    margin-bottom: 30px; /* Add margin between buttons */
+    margin-bottom: 50px; /* Add margin between buttons */
     cursor: pointer; /* Add pointer cursor */
     transition: background-color 0.3s; /* Smooth background color transition */
 }
