@@ -13,14 +13,13 @@
                   
               </td>
               <td><span class="productnom">{{product.name}} ({{product.quantite}})</span></td>
-              <td>
-                  <span class="productCout">Coût: {{product.cout}}</span>
-              </td>
+              
           </tr>
           <tr>
               <td>
                   <button class="achat" (click)="acheterProduit()" type="button">
                     Acheter !
+                    {{product.cout}} €
                   </button>
               </td>
               <td>
