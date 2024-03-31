@@ -101,3 +101,20 @@ li button {
 li button:hover {
     background-color: #0056b3; /* Darker blue on hover */
 }
+
+.managerImage{
+    width: 40px;
+    height: 40px;
+}
+
+button {
+    width: 100%; /* Make buttons fill the entire width of the list item */
+    background-color: #007bff; /* Blue button color */
+    color: #fff; /* White text color */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners */
+    padding: 10px 20px; /* Add padding */
+    margin-bottom: 50px; /* Add margin between buttons */
+    cursor: pointer; /* Add pointer cursor */
+    transition: background-color 0.3s; /* Smooth background color transition */
+}

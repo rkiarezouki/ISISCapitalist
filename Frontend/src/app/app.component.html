@@ -1,3 +1,4 @@
+
 <div class="tout">
   <div class="header">
     <div> <span>
@@ -16,7 +17,7 @@
         <li><button>Unlock</button></li>
         <li><button>Cash Upgrades</button></li>
         <li><button>Angel Upgrades</button></li>
-        <li><button>Managers</button></li>
+        <li><button type="button" (click)="afficherManager()">Managers</button></li>
         <li><button>Investors</button></li>
       </ul>
 
@@ -43,3 +44,22 @@
     </div>
   </div>
 </div>
+
+@if(sectionManager){
+  <div class="tout">
+    <div class="header">
+      <div>
+        <h1>Managers</h1>
+        <div class="manager-list">
+            @for (manager of world.managers; let index = $index; track manager.idcible) {
+              <div>
+                <img class="managerImage" [src]="BACKEND + manager.logo"/>
+                {{manager.name}}
+                <button>Engager Manager pour {{manager.seuil}} €</button>
+              </div>
+            }
+        </div>
+      </div>
+    </div>
+  </div>
+}

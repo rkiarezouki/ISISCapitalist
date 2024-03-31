@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { World } from './world';
+import { World , Palier} from './world';
 import { GraphqlService } from './graphql.service';
 import { BigvaluePipe } from './bigvalue.pipe';
 import { Product } from './world';
@@ -20,7 +20,8 @@ export class AppComponent {
   server = ""
   BACKEND = "http://localhost:4000/";
   _qtmulti = "1";
-  username: string = '';
+  username: string = "rokaya";
+  sectionManager = false;
 
   world: World = new World();
   constructor(private service: GraphqlService) {
@@ -62,9 +63,25 @@ export class AppComponent {
 
   onUsernameChanged() {
     localStorage.setItem("username", this.username);
+    console.log(this.username)
   }
 
   ngOnInit() {
     this._qtmulti = "1";
   }
+
+
+  afficherManager() {
+    this.sectionManager = !this.sectionManager;
+  }
+
+  engagerManager(manager: Palier) {
+    this.service.engagerManager(manager).catch(reason =>
+      console.log("erreur: " + reason)
+    )
+    this.world.money -= manager.seuil
+    this.onEngager.emit(manager);
+
+  }
+  @Output() onEngager: EventEmitter<Palier> = new EventEmitter<Palier>();
 }

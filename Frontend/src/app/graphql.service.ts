@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Client, fetchExchange } from '@urql/core';
 import { BACKEND, GET_WORLD, ACHETER_PRODUIT, ENGAGER_MANAGER, LANCER_PRODUCTION} from './request';
-import { World } from './world';
+import { World, Palier } from './world';
 import { Product } from './world';
 
 @Injectable({
@@ -43,6 +43,10 @@ export class GraphqlService {
       
         quantite : quantite
     }).toPromise();
+  }
+
+  engagerManager(palier: Palier) {
+    return this.createClient().mutation(ENGAGER_MANAGER, {name: palier.name}).toPromise();
   }
 
 }
