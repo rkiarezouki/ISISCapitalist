@@ -35,7 +35,7 @@ export class ProductComponent {
         this.run = false;
         this.notifyProduction.emit(this.product);
       }
-      if (this.product.managerUnlocked && this.product.timeleft == 0 && this.product.quantite > 0) {
+      if (this.product.managerUnlocked==true && this.product.timeleft == 0 && this.product.quantite > 0) {
         this.product.timeleft = this.product.vitesse;
         this.auto = true;
         this.lastupdate = Date.now();
