@@ -56,7 +56,7 @@
                 <img class="managerImage" [src]="BACKEND + manager.logo"/>
                 {{manager.name}}
                 @if(manager.unlocked==false){
-                  <button (click)="engagerManager(manager)">Engager Manager pour {{manager.seuil}} €</button>
+                  <button (click)="engagerManager(manager)" [disabled]="!argentPourManager(manager)">Engager Manager pour {{manager.seuil}} €</button>
                 }
               </div>
             }

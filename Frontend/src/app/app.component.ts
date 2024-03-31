@@ -50,9 +50,7 @@ export class AppComponent {
 
   onBuy({qt, product} : {qt:number, product:Product}) {
     let cout = product.cout * (1 - Math.pow(product.croissance, qt)) / (1 - product.croissance);
-    if(this.world.money>cout){
-      this.world.money -= cout
-    }
+    this.world.money -= cout
   }
 
   getUsername() {
@@ -75,15 +73,17 @@ export class AppComponent {
     this.sectionManager = !this.sectionManager;
   }
 
+  argentPourManager(manager : Palier){
+    return this.world.money >= manager.seuil
+  }
+
   engagerManager(manager: Palier) {
     this.service.engagerManager(manager).catch(reason =>
       console.log("erreur: " + reason)
     )
-    if(this.world.money>manager.seuil){
-      this.world.money -= manager.seuil
-      this.onEngager.emit(manager);
-      console.log("manager engagé?")
-    }
+    this.world.money -= manager.seuil
+    this.onEngager.emit(manager);
+    console.log("manager engagé?")
     
   }
   @Output() onEngager: EventEmitter<Palier> = new EventEmitter<Palier>();
