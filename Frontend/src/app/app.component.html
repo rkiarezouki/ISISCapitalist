@@ -55,7 +55,7 @@
               <div>
                 <img class="managerImage" [src]="BACKEND + manager.logo"/>
                 {{manager.name}}
-                <button>Engager Manager pour {{manager.seuil}} €</button>
+                <button (click)="engagerManager(manager)">Engager Manager pour {{manager.seuil}} €</button>
               </div>
             }
         </div>

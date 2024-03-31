@@ -79,9 +79,12 @@ export class AppComponent {
     this.service.engagerManager(manager).catch(reason =>
       console.log("erreur: " + reason)
     )
-    this.world.money -= manager.seuil
-    this.onEngager.emit(manager);
-
+    if(this.world.money>manager.seuil){
+      this.world.money -= manager.seuil
+      this.onEngager.emit(manager);
+      console.log("manager engagé?")
+    }
+    
   }
   @Output() onEngager: EventEmitter<Palier> = new EventEmitter<Palier>();
 }
