@@ -30,14 +30,14 @@ export class ProductComponent {
       let tempsEcoule = Date.now() - this.lastupdate;
       this.lastupdate = Date.now();
       this.product.timeleft = this.product.timeleft - tempsEcoule;
-      if (this.product.timeleft <= 0) {
+      if (this.product.timeleft <= 0) { //quand la production est finie
         this.product.timeleft = 0;
         this.run = false;
         this.notifyProduction.emit(this.product);
       }
-      if (this.product.managerUnlocked==true && this.product.timeleft == 0 && this.product.quantite > 0) {
+      if (this.product.managerUnlocked==true && this.product.timeleft == 0 && this.product.quantite > 0) { //quand manager débloqué, quand la production finie et quand la quantitée est suppérieur à 0.
         this.product.timeleft = this.product.vitesse;
-        this.auto = true;
+        this.auto = true; //réactualiser la barre de progression
         this.lastupdate = Date.now();
       }
     }

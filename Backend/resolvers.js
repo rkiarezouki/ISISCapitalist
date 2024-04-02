@@ -69,13 +69,13 @@ module.exports = {
                 throw new Error(`Le produit d'id ${args.id} n'existe pas`);
             }
 
-            const coutTotal = produit.cout * (1 - Math.pow(produit.croissance, args.quantite)) / (1 - produit.croissance);
+            const totalcout = produit.cout * (1 - Math.pow(produit.croissance, args.quantite)) / (1 - produit.croissance);
 
-            if (context.world.money < coutTotal) {
+            if (context.world.money < totalcout) {
                 throw new Error(`Vous n'avez pas assez d'agent pour ajouter ce produit`);
             }
 
-            context.world.money = context.world.money - coutTotal;
+            context.world.money = context.world.money - totalcout;
             produit.quantite = produit.quantite+ args.quantite;
             produit.cout = Math.pow(1 + produit.croissance, args.quantite) * produit.cout;
             saveWorld(context);
