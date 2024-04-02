@@ -18,7 +18,7 @@ function qtProduitSupplementaire(product, elapseTime) { //calculer Quantité de 
             return 1 //1 produit de plus
         }
         else if (product.timeleft !== 0 && TempsRestant > 0) { //en cours de production
-            product.timeleft -= elapseTime
+            product.timeleft =product.timeleftb-  elapseTime
             return 0
         }
         else { //aucune production
@@ -27,7 +27,7 @@ function qtProduitSupplementaire(product, elapseTime) { //calculer Quantité de 
     }
     else { //Manager débloqué
         if (TempsRestant < 0) { //déjà produit
-            product.timeleft = (product.vitesse - (-TempsRestant % product.vitesse))
+            product.timeleft = (product.vitesse - (TempsRestant % product.vitesse))
             return (1 + (Math.floor(-TempsRestant / product.vitesse)))
         }
         else if (TempsRestant === 0) { //va être produit
@@ -35,12 +35,12 @@ function qtProduitSupplementaire(product, elapseTime) { //calculer Quantité de 
             return 1
         }
         else { //pas de production
-            product.timeleft -= elapseTime
+            product.timeleft = product.timeleft - elapseTime
             return 0
         }
     }
 }
-function updateMoney(context) { //mettre a jour l'argent en fonction de la quantité de produit supplémentaire
+function updateArgent(context) { //mettre a jour l'argent en fonction de la quantité de produit supplémentaire
     let somme = 0
     context.world.products.forEach(p => {
         let tempsEcoule = Date.now() - Number(context.world.lastupdate)
@@ -55,7 +55,7 @@ function updateMoney(context) { //mettre a jour l'argent en fonction de la quant
 module.exports = {
     Query: {
         getWorld(parent, args, context, info) {
-            updateMoney(context);
+            updateArgent(context);
             saveWorld(context)
             return context.world
         }
@@ -63,7 +63,7 @@ module.exports = {
     Mutation: {
         //marche
         acheterQtProduit(parent, args, context) {
-            updateMoney(context);
+            updateArgent(context);
             const produit = context.world.products.find(p => p.id === args.id);
             if (!produit) {
                 throw new Error(`Le produit d'id ${args.id} n'existe pas`);
@@ -85,7 +85,7 @@ module.exports = {
 
         //marche
         lancerProductionProduit(parent, args, context) {
-            updateMoney(context);
+            updateArgent(context);
 
             const produit = context.world.products.find(p => p.id === args.id);
             if (!produit) {
@@ -99,7 +99,7 @@ module.exports = {
 
         //marche
         engagerManager(parent, args, context) {
-            updateMoney(context);
+            updateArgent(context);
             let manager = context.world.managers.find(p => p.name === args.name)
             let product = context.world.products.find(p => p.id === manager.idcible)
             if (!manager) {
